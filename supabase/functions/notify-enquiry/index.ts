@@ -32,6 +32,7 @@ serve(async (req:any) => {
     body: JSON.stringify({
       from: 'onboarding@resend.dev',
       to: OWNER_EMAIL,
+      cc: ['subisundar2003@gmail.com'],
       subject: `New Enquiry from ${record.name}`,
       text: `Name: ${record.name}\nPhone: ${record.phone}\nEmail: ${record.email || 'Not provided'}\nService: ${record.service_type}\nMessage: ${record.message || 'Not provided'}`,
     }),
