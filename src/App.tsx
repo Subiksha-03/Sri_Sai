@@ -60,12 +60,23 @@ function App() {
   async function submitEnquiry(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setFormStatus('sending');
+
     const { error } = await supabase.from('enquiries').insert(form);
     if (error) {
       console.error('Enquiry submission failed', error);
       setFormStatus('error');
       return;
     }
+
+    await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/notify-enquiry`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+      },
+      body: JSON.stringify({ record: form }),
+    });
+
     setForm({ name: '', phone: '', email: '', service_type: '', message: '' });
     setFormStatus('success');
   }
