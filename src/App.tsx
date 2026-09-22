@@ -13,6 +13,7 @@ import {
   X,
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import logo from '@/assests/logo.jpeg';
 import type { EnquiryForm, GalleryImage } from '@/types';
 
 const fallbackHero = 'https://images.pexels.com/photos/36230779/pexels-photo-36230779.jpeg?auto=compress&cs=tinysrgb&w=1800';
@@ -98,8 +99,7 @@ function App() {
       <header className="header">
         <div className="container header-inner">
           <button className="brand" onClick={() => scrollTo('home')} aria-label="Sri Sai Enterprises home">
-            <span className="brand-mark"><Layers3 size={22} /></span>
-            <span><strong>SRI SAI</strong><small>ENTERPRISES</small></span>
+            <img src={logo} alt="Sri Sai Enterprises" className="brand-logo" />
           </button>
           <nav className={menuOpen ? 'nav nav-open' : 'nav'}>
             <button onClick={() => scrollTo('home')}>Home</button>
@@ -163,7 +163,7 @@ function App() {
         <section id="enquire" className="enquire-section"><div className="container enquire-grid"><div className="enquire-copy"><div className="eyebrow light"><span /> LET'S TALK FLOORS</div><h2>Have a space<br /><em>in mind?</em></h2><p>Tell us a little about your project. Our team will get back to you with practical advice and a clear, no-obligation quote.</p><div className="contact-line"><Phone size={18} /><div><small>Call us directly</small><a href="tel:+916374498982">+91 63744 98982</a></div></div></div><form className="enquiry-form" onSubmit={submitEnquiry}><div className="form-row"><label>Name<input required value={form.name} onChange={(event) => updateForm('name', event.target.value)} placeholder="Your full name" /></label><label>Phone<input required type="tel" value={form.phone} onChange={(event) => updateForm('phone', event.target.value)} placeholder="+91 00000 00000" /></label></div><div className="form-row"><label>Email <span>(optional)</span><input type="email" value={form.email} onChange={(event) => updateForm('email', event.target.value)} placeholder="you@company.com" /></label><label>Project type<select required value={form.service_type} onChange={(event) => updateForm('service_type', event.target.value)}><option value="">Select a service</option><option>Industrial Flooring</option><option>Commercial Flooring</option><option>Residential Flooring</option><option>Garage Flooring</option><option>PU / Protective Coating</option></select></label></div><label>Tell us about your space <span>(optional)</span><textarea rows={4} value={form.message} onChange={(event) => updateForm('message', event.target.value)} placeholder="Approximate area, current floor condition, or anything else..." /></label><button className="button button-primary form-submit" type="submit" disabled={formStatus === 'sending'}>{formStatus === 'sending' ? 'Sending...' : 'Send enquiry'} <ArrowRight size={18} /></button>{formStatus === 'success' && <div className="form-message success"><Check size={17} /> Thank you. We will be in touch soon.</div>}{formStatus === 'error' && <div className="form-message error">We could not send your enquiry. Please try again or call us directly.</div>}</form></div></section>
       </main>
 
-      <footer className="footer"><div className="container footer-inner"><div className="brand footer-brand"><span className="brand-mark"><Layers3 size={22} /></span><span><strong>SRI SAI</strong><small>ENTERPRISES</small></span></div><p>Premium epoxy flooring, crafted for real life.</p><div className="footer-right"><span>© 2026 Sri Sai Enterprises</span><a href="tel:+916374498982"><Phone size={14} /> +91 63744 98982</a></div></div></footer>
+      <footer className="footer"><div className="container footer-inner"><div className="brand footer-brand"><img src={logo} alt="Sri Sai Enterprises" className="brand-logo" /></div><p>Premium epoxy flooring, crafted for real life.</p><div className="footer-right"><span>© 2026 Sri Sai Enterprises</span><a href="tel:+916374498982"><Phone size={14} /> +91 63744 98982</a></div></div></footer>
     </div>
   );
 }

@@ -1,14 +1,15 @@
 // @ts-ignore
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts';
 
-const OWNER_EMAIL = 'subisundar2003@gmail.com';
+const OWNER_EMAIL = 'sreesaie33@gmail.com';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-serve(async (req) => {
+serve(async (req:any) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
   }

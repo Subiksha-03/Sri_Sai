@@ -17,11 +17,7 @@ button { cursor: pointer; }
 .header { background: #f6f6f3; position: relative; z-index: 5; }
 .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; }
 .brand { border: 0; background: none; padding: 0; display: flex; align-items: center; gap: 11px; color: #17202a; text-align: left; }
-.brand-mark { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #177ba4; color: #177ba4; transform: rotate(-45deg); }
-.brand-mark svg { transform: rotate(45deg); }
-.brand strong, .brand small { display: block; line-height: 1; }
-.brand strong { font-size: 16px; letter-spacing: .16em; }
-.brand small { color: #177ba4; font-size: 8px; letter-spacing: .35em; margin-top: 5px; }
+.brand-logo { height: 52px; width: auto; object-fit: contain; }
 .nav { display: flex; align-items: center; gap: 32px; }
 .nav button { border: 0; background: none; color: #53616a; font-size: 13px; font-weight: 600; }
 .nav button:hover { color: #177ba4; }
